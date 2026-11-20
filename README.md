@@ -42,6 +42,6 @@ Currently, OpenEmu can load the following game engines as plugins:
 Minimum Requirements
 --------------------
 
-macOS Mojave 10.14.4
+macOS Monterey 12.0
 
-Building the default branch requires Xcode 14.3 and macOS Ventura.
+Building the default branch requires Xcode 26 (which runs on macOS Sequoia 15.6 or later).

@@ -140,6 +140,8 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>OEApplication</string>
+	<key>UIDesignRequiresCompatibility</key>
+	<true/>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
 	<key>OEBuildVersion</key>
@@ -151,9 +153,9 @@
 	<key>OELongBuildVersion</key>
 	<string></string>
 	<key>SUEnableAutomaticChecks</key>
-	<true/>
+	<false/>
 	<key>SUFeedURL</key>
-	<string>https://raw.github.com/OpenEmu/OpenEmu-Update/master/appcast.xml</string>
+	<string>$(OE_APP_UPDATE_FEED_URL)</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUPublicEDKey</key>

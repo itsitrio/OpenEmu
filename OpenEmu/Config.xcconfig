@@ -1,5 +1,13 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+// Sparkle appcast for the OpenEmu app itself. This points at this fork rather
+// than the official OpenEmu feed, so a homebrew build is never "updated" back
+// to the official release. Automatic checks are off in OpenEmu-Info.plist.
+// To publish your own updates, host an appcast.xml here signed with your own
+// EdDSA key, and replace SUPublicEDKey in OpenEmu-Info.plist.
+// ($() stops xcconfig from reading // as the start of a comment.)
+OE_APP_UPDATE_FEED_URL = https:/$()/raw.githubusercontent.com/itsitrio/OpenEmu/master/appcast.xml
+
 #include "CodeSignDefault.xcconfig"
 #include? "../CodeSign.xcconfig"
