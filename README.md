@@ -44,4 +44,4 @@ Minimum Requirements
 
 macOS Monterey 12.0
 
-Building the default branch requires Xcode 26 (which runs on macOS Sequoia 15.6 or later).
+Building the default branch requires Xcode 26 or later (Xcode 26 runs on macOS Sequoia 15.6 or later).
