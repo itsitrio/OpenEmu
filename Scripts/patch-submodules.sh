@@ -16,3 +16,17 @@ if grep -q 'branch = development;' "$shaders"; then
 else
     echo "ZIPFoundation requirement in $shaders already patched"
 fi
+
+# Xcode 27 only supports macOS deployment targets of 12.0 and later, but the
+# core and framework submodules target 10.11-11.x. Raise anything older than
+# 12.0 to 12.0 in every Xcode project and xcconfig in the workspace,
+# including optional cores (UME, PPSSPP) cloned outside of git submodules.
+count=0
+while IFS= read -r -d '' f; do
+    if grep -Eq 'MACOSX_DEPLOYMENT_TARGET[[:space:]]*=[[:space:]]*"?(10|11)\.' "$f"; then
+        perl -pi -e 's/(MACOSX_DEPLOYMENT_TARGET\s*=\s*)"?(?:10|11)\.\d+(?:\.\d+)?"?/${1}12.0/g' "$f"
+        count=$((count + 1))
+    fi
+done < <(find . \( -path ./build -o -path '*/DerivedData' -o -path ./.git \) -prune -o \
+              \( -name project.pbxproj -o -name '*.xcconfig' \) -print0)
+echo "Raised deployment target to macOS 12.0 in $count file(s)"
